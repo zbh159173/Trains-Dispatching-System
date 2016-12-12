@@ -1,0 +1,46 @@
+# Project: ÏîÄ¿1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__ -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__ -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = BTW.o FAFS.o init.o input.o main.o output.o run.o
+LINKOBJ  = BTW.o FAFS.o init.o input.o main.o output.o run.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -L"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3 -g3
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = train.exe
+CXXFLAGS = $(CXXINCS) -g3 -g3
+CFLAGS   = $(INCS) -g3 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BTW.o: BTW.c
+	$(CC) -c BTW.c -o BTW.o $(CFLAGS)
+
+FAFS.o: FAFS.c
+	$(CC) -c FAFS.c -o FAFS.o $(CFLAGS)
+
+init.o: init.c
+	$(CC) -c init.c -o init.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+output.o: output.c
+	$(CC) -c output.c -o output.o $(CFLAGS)
+
+run.o: run.c
+	$(CC) -c run.c -o run.o $(CFLAGS)
